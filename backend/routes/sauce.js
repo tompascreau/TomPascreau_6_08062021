@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
+const bodyParser = require('body-parser');
+
+var formDataParse = bodyParser.urlencoded();
+
 const sauceCtrl = require('../controlleurs/sauce');
 
 router.post('/', sauceCtrl.createSauce);

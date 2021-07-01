@@ -1,16 +1,17 @@
 const Sauce = require('../models/Sauce');
 
 exports.createSauce = (req, res, next) => {
-    const sauce = new Sauce({ 
-        name: req.body.name,
-        imageUrl: req.body.imageUrl,
-        heat: 0,
+    console.log(req.body);
+    const sauce = new Sauce({
+        name: req.body.sauce,
+        imageUrl: '#',
+        heat: req.body.heat,
         likes: 0,
         dislikes: 0,
         usersLiked: [],
         usersDisliked: []
     });
-    sauce.save()
+    sauce.save() 
     .then(() => res.status(201).json({ message: 'sauce enregistrée' }))
     .catch(error => res.status(400).json({ error }));
 };
